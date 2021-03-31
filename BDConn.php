@@ -1,18 +1,17 @@
 <?php
     $pdo = null;
-    $host = "credimarketnic.com";
+    $host = "localhost";
     $user = "root";
     $password = "";
     $db = "db_credimarket";
-    $port = "3306"
 
     function conn(){
         try{
-            $GLOBALS['pdo']= new PDO("mysql:host=".$GLOBALS['host'].";dbname=".$GLOBALS['db']."",$GLOBALS['user'], $GLOBALS['password'].";port=",$GLOBALS['3306']);
+            $GLOBALS['pdo']= new PDO("mysql:host=".$GLOBALS['host'].";dbname=".$GLOBALS['db']."",$GLOBALS['user'], $GLOBALS['password']);
             $GLOBALS['pdo']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }catch(PDOException $e){
             print "Error!: No se pudo conectar a la base de datos ".$db."<br/>";
-            print "\nErro!: ".$e."<br/>"; 
+            print "\nError!: ".$e."<br/>"; 
             die();
         }
     }
